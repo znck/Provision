@@ -1,2 +1,2 @@
 # Provision
-A collections of scripts to provision servers.
+A collections of scripts for server admins.
