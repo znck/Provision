@@ -5,8 +5,8 @@
 #       - PHP_VERSION (supported values: 5.6, 7.0, 7.1)
 #
 
-USER=${USER:-wtuser}
-PHP_VERSION=${PHP_VERSION:-7.0}
+USER=${USER:-tower}
+PHP_VERSION=7.0
 
 ## => Add PPA repository for PHP
 ## ----------------------------------------------------------------

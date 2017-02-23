@@ -4,7 +4,7 @@
 #       - USER (the default user)
 #
 
-USER=${USER:-wtuser}
+USER=${USER:-tower}
 
 ## => Add PPA repository for Nginx
 ## ----------------------------------------------------------------

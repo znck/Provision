@@ -5,8 +5,8 @@
 #       - DB_PASSWORD (random password for database user)
 #
 
-USER=${USER:-wtuser}
-PG_VERSION=${PG_VERSION:-9.6} # TODO: Auto detect using `postgres --version`
+USER=${USER:-tower}
+DB_PASSWORD=${DB_PASSWORD:-password}
 
 ## => Add PPA repository for Postgres
 ## ----------------------------------------------------------------
@@ -16,6 +16,10 @@ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-
 ## => Install postgres
 ## ----------------------------------------------------------------
 apt-get install -y --allow-unauthenticated postgresql postgresql-contrib
+
+## => Detect postgres version
+## ----------------------------------------------------------------
+PG_VERSION=`postgres --version | awk '{print $3}' | sed 's/\.[^.]*$//'`
 
 ## => Configure remote access
 ## ----------------------------------------------------------------
@@ -29,5 +33,3 @@ sudo -u postgres psql -c "CREATE ROLE ${USER} LOGIN UNENCRYPTED PASSWORD '${DB_P
 ## => Restart postgres service
 ## ----------------------------------------------------------------
 service postgresql restart
-
-# TODO: FIX: psql: FATAL:  Peer authentication failed for user "${USER}"
